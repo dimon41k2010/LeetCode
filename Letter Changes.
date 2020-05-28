@@ -1,0 +1,39 @@
+===== First Task ====== 
+
+Letter Changes.
+Have the function LetterChanges(str) take the str parameter being passed and modify it using the following algorithm. 
+Replace every letter in the string with the letter following it in the alphabet (ie. c becomes d, z becomes a). 
+Then capitalize every vowel in this new string (a, e, i, o, u) and finally return this modified string.
+
+    Examples:
+    Input: "hello*3"
+    Output: Ifmmp*3
+
+    Input: "fun times!"
+    Output: gvO Ujnft!
+
+===== End of the Task ====== 
+
+===== Solution =====
+def LetterChanges(str1):
+    result = ""
+    for i in str1:
+        ascii = ord(i)
+        #if ascii in range (65, 90) or (97, 122):
+        if ord('A') <= ascii < ord('Z') or ord('a') <= ascii < ord('z'):
+            ascii = ascii + 1
+        if ascii == ord('Z') or ascii == ord('z'):
+            ascii = 97
+            if ascii in (97, 101, 105, 111, 117):
+                ascii_n = chr(ascii)
+                new_con = ascii_n.upper()
+            else:
+                new_con = chr(ascii)
+        else:
+            new_con = chr(ascii)
+        result = result + new_con
+    return result
+print ( LetterChanges ( "H-z-ello-0-D-f-5-Z-a-z" ) )
+
+
+===== End of the Solution ====== 
